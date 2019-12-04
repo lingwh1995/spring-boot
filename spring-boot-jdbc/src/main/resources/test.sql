@@ -1,0 +1,5 @@
+-- 测试自动执行建表语句
+CREATE TABLE TEST(
+  ID VARCHAR2(32),
+  NAME VARCHAR2(32)
+);

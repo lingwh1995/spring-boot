@@ -1,0 +1,38 @@
+1.pom加入下面依赖
+    	<dependency>
+    			<groupId>org.apache.tomcat.embed</groupId>
+    			<artifactId>tomcat-embed-jasper</artifactId>
+    			<scope>provided</scope>
+    		</dependency>
+2.yml中配置(刷新jsp页面及时生效):
+    server:
+      servlet:
+        jsp:
+          init-parameters:
+            development: true
+3.配置jsp页面前缀后缀
+    spring:
+      mvc:
+        view:
+          prefix: /view/
+          suffix: .jsp
+4.解决控制台乱码问题
+    <plugin>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-maven-plugin</artifactId>
+    	<configuration>
+    		<fork>true</fork>
+    		<jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
+    	</configuration>
+    </plugin>
+5.启动项目在maven面板中找:
+    Plugins->spring-boot->spring-boot:run
+6.解决项目部署后只能直接访问jsp页面,不能访问Controller中映射,此类必须要有,位置随意
+    public class ServletInitializer extends SpringBootServletInitializer {
+    	@Override
+    	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+    		return application.sources(Application.class);
+    	}
+    }
+7.在jsp页面引入js等静态资源的时候要在路径前面加${pageContext.request.contextPath}
+8.jstl相关的jar不需要引入
