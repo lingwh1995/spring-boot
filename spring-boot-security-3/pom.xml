@@ -19,6 +19,13 @@
         <ojdbc.version>11.2.0.3</ojdbc.version>
         <druid-spring-boot-starter.version>1.1.10</druid-spring-boot-starter.version>
         <mybatis-spring-boot-starter.version>2.0.0</mybatis-spring-boot-starter.version>
+        <!--thymeleaf切换成3版本，layout切换成2-->
+        <!--注意:经过测试3.0.9.RELEASE和当前Springboot版本并不兼容-->
+        <!--<thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>-->
+        <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
+        <thymeleaf-layout-dialect.version>2.3.0</thymeleaf-layout-dialect.version>
+        <!--当前版本springsecurity要用5版本,4版本在页面无法获取用户相关信息-->
+        <thymeleaf-extras-springsecurity5.version>3.0.4.RELEASE</thymeleaf-extras-springsecurity5.version>
     </properties>
 
     <dependencies>
@@ -28,7 +35,12 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-freemarker</artifactId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+            <version>${thymeleaf-extras-springsecurity5.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
