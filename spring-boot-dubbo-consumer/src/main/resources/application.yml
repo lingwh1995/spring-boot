@@ -1,0 +1,13 @@
+server:
+  port: 8082
+spring:
+  dubbo:
+    application:
+      name: springboot-dubbo-consumer
+    registry:
+      address: zookeeper://20.20.32.123
+      port: 2181
+#    protocol:
+#      name: dubbo
+#      port: 20890
+#    scan: com.dragonsoft.controller
