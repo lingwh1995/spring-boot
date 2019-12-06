@@ -2,13 +2,15 @@ server:
   port: 8081
 spring:
   profiles:
-    active: dev
+    active: test
   dubbo:
     application:
       name: springboot-dubbo-provide
     protocol:
       name: dubbo
       port: 20890
+    server: true
+
 
 ---
 spring:

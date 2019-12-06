@@ -1,0 +1,29 @@
+1.yml/properties文件中不要带spring前缀,如:
+    正确写法:
+        dubbo:
+          application:
+            name: springboot-dubbo-provide-2.7
+    错误写法:
+        spring:
+          dubbo:
+            application:
+            name: springboot-dubbo-provide-2.7
+2.  dubbo:
+       application:
+            name:
+    这个属性的值中不要带有特殊字符,否则项目无法启动,如:
+    正确写法:
+        dubbo:
+           application:
+                name: springboot-dubbo-provide-2.7
+    错误写法:最后面带了一个+号,导致项目无法启动
+        dubbo:
+           application:
+                name: springboot-dubbo-provide-2.7+
+3.yml/properties中,下面的可以不能配置,经测试,配置后服务无法成功发布,因为根本不存在这个属性
+    dubbo:
+        scan:
+          base-packages: com.kp.robot.service.dubbo  #服务暴露与发现消费所在的package
+4.启动类上不需要加:@DubboComponentScan(basePackages = "com.dragonsoft.service")
+  但是必须在Service层要对外暴露的服务上加@Service注解,但是这个是dubbo提供的,不是Spring框架的
+  @Service,否则项目启动成功,但是服务却没有发布出去

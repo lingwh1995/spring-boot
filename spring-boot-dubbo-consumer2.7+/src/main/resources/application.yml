@@ -1,0 +1,17 @@
+dubbo:
+  #应用配置，用于配置当前应用信息，不管该应用是提供者还是消费者。
+  #遇到的bug:当springboot-dubbo-provide-2.7+包含+时,项目无法启动,因为特殊符号无法识别
+  application:
+    name: springboot-dubbo-consumer-2.7
+  #注册中心配置，用于配置连接注册中心相关信息。
+  registry:
+    address: zookeeper://20.20.32.123:2181
+  #协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受。
+  metadata-report:
+    address: zookeeper://20.20.32.123:2181
+  protocol:
+    name: dubbo
+    port: 20888
+  version: 1.0.0
+server:
+  port: 8085

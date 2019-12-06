@@ -5,45 +5,35 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.dragonsoft</groupId>
-    <artifactId>spring-boot-dubbo-provider</artifactId>
+    <artifactId>spring-boot-dubbo-provider2.7+</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
+        <artifactId>spring-boot-starter</artifactId>
         <version>2.2.1.RELEASE</version>
         <relativePath/>
     </parent>
 
     <properties>
         <java.version>1.8</java.version>
-        <com.alibaba.boot.version>2.0.0</com.alibaba.boot.version>
-        <zkclient.version>0.10</zkclient.version>
+        <org.apache.dubbo.version>2.7.3</org.apache.dubbo.version>
+        <curator-recipes.version>4.2.0</curator-recipes.version>
     </properties>
 
     <dependencies>
+        <!--dubbo-->
         <dependency>
-            <groupId>com.alibaba.spring.boot</groupId>
+            <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
-            <version>${com.alibaba.boot.version}</version>
+            <version>${org.apache.dubbo.version}</version>
         </dependency>
-        <!-- zookeeper客户端 -->
+        <!--zkclient-->
         <dependency>
-            <groupId>com.101tec</groupId>
-            <artifactId>zkclient</artifactId>
-            <version>${zkclient.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>slf4j-log4j12</artifactId>
-                    <groupId>org.slf4j</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>${curator-recipes.version}</version>
         </dependency>
     </dependencies>
 

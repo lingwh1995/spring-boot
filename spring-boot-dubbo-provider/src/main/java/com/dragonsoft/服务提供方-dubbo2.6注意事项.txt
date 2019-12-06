@@ -1,0 +1,5 @@
+1.在yml配置文件中配置:
+    spring:
+        dubbo:
+            server: true
+  标识当前工程为服务提供方,否则要在pom加入spring-boot-starter-web这个依赖
