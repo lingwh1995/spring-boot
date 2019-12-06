@@ -9,6 +9,7 @@
     spring.messages.basename=i18n/message
     spring.root.password=root
     spring.guest.password=guest
+    spring.dubbo.registry.address=zookeeper://部署zookeeper的ip:2181
 3.在IDEA中添加为maven工程,通过Maven面板进入dubbo-admin:点击install
 4.通过Terminal进入dubbo-admin-ui,执行如下命令:
     切换镜像源为taobao镜像源:            npm config set registry https://registry.npm.taobao.org

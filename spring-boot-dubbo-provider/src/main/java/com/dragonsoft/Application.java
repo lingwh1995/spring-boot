@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @version V1.0
  * @since 2019/12/5 13:37
  */
-@SpringBootApplication
 @EnableDubboConfiguration
+@SpringBootApplication
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class,args);
