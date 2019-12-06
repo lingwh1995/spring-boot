@@ -1,0 +1,27 @@
+1.下载dubbo-admin:
+    https://github.com/apache/incubator-dubbo-ops
+2.在IDEA中添加为maven工程,通过Maven面板进入 dubbo-ops:点击install
+3.进入dubbo-admin-server/src/main/resources/application.properties,修改application.properties配置文件
+    server.port=8083
+    spring.velocity.cache=false
+    spring.velocity.charset=UTF-8
+    spring.velocity.layout-url=/templates/default.vm
+    spring.messages.fallback-to-system-locale=false
+    spring.messages.basename=i18n/message
+    spring.root.password=root
+    spring.guest.password=guest
+4.通过Terminal进入dubbo-admin-ui,执行如下命令:
+    切换镜像源为taobao镜像源:            npm config set registry https://registry.npm.taobao.org
+    监测镜像源是否配置为taobao镜像源:      npm config get registry
+    安装dubbo-admin-ui所需依赖:          npm install 命令
+5.进入/dubbo-admin-ui/config/index.js,修改ip和端口为dubbo-admin访问地址:
+    proxyTable: {
+         '/': {
+           target: 'http://20.20.32.123:8083/',
+           changeOrigin: true,
+           pathRewrite: {
+             '^/': '/'
+           }
+         }
+    }
+4.进入/dubbo-admin-server启动boot项目
