@@ -2,7 +2,7 @@ server:
   port: 8082
 spring:
   profiles:
-    active: test
+    active: dev
   dubbo:
     application:
       name: springboot-dubbo-consumer
