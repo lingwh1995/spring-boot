@@ -5,10 +5,12 @@ dubbo:
     name: springboot-dubbo-provide-2.7
   #注册中心配置，用于配置连接注册中心相关信息。
   registry:
-    address: zookeeper://20.20.32.123:2181
+    #address: zookeeper://20.20.32.123:2181
+    address: zookeeper://192.168.18.131:2181
   #协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受。
   metadata-report:
-    address: zookeeper://20.20.32.123:2181
+    #address: zookeeper://20.20.32.123:2181
+    address: zookeeper://192.168.18.131:2181
   protocol:
     name: dubbo
     port: 20888
