@@ -7,8 +7,8 @@ eureka:
   client:
     register-with-eureka: false #不向注册中心注册自己
     fetch-registry: false #表示自己就是注册中心,我的职责就是维护实例,不需要去检索服务
-    server-url: #不从eureka上来获取服务的注册信息
-    defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
   server:
       enable-self-preservation: true    #是否启用自我保护机制,默认是true
 
