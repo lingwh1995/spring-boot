@@ -122,7 +122,7 @@ public class RestTemplateTest {
      */
     @Test
     public void fun6(){
-        String url = "http://localhost:8080/post";
+        String url = "http://localhost:8080/rest/post";
         HttpHeaders headers = new HttpHeaders();
         //header可以不设置值
         //headers.set("phone", "1234567");
@@ -156,6 +156,21 @@ public class RestTemplateTest {
         HttpEntity httpEntity = new HttpEntity(params, headers);
         User user = restTemplate.postForObject(url, httpEntity, User.class);
         System.out.println(user);
+    }
+
+    @Test
+    public void fun71(){
+        String url = "http://localhost:8080/rest/postjson";
+        HttpHeaders requestHeaders = new HttpHeaders();
+        //requestHeaders.setContentType(MediaType.APPLICATION_JSON);
+        requestHeaders.add("Content-Type", "application/json");
+        Map<String, String> requestBody = new HashMap();
+        requestBody.put("name","zhangsan");
+        HttpEntity<Map<String, String>> requestEntity = new HttpEntity<Map<String, String>>(requestBody, requestHeaders);
+        String postForObjectResult = restTemplate.postForObject(url, requestEntity,String.class);
+        System.out.println(postForObjectResult);
+        ResponseEntity<String> postForEntityResult = restTemplate.postForEntity(url, requestEntity,String.class);
+        System.out.println(postForEntityResult);
     }
 
 

@@ -38,15 +38,20 @@ public class RestTemplateController {
     @ResponseBody
     @GetMapping(value="/get/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public User getUsers(@PathVariable("id") Integer id){
+        // 模拟发生了异常
+        //int i = 1/0 ;
         if(id == 1){
             return new User("zs","18");
+        }else if(id == 2){
+            return new User("ls","28");
+        }else{
+            return new User("ww","38");
         }
-        return null;
     }
 
     /**
      * POST方式的请求
-     * @param user
+     * @param user 前台传递的是普通的表单数据
      * @return
      */
     @ResponseBody
@@ -56,10 +61,22 @@ public class RestTemplateController {
         return user;
     }
 
+    /**
+     * POST方式的请求
+     * @param user 前台传递的是json格式的参数
+     * @return
+     */
+    @ResponseBody
+    @PostMapping("postjson")
+    public User testPostJson(@RequestBody User user){
+        System.out.println("要新增的user的是:"+user);
+        return user;
+    }
+
 
     /**
      * PUT方式的请求
-     * @param user
+     * @param user 前台传递的是普通的表单数据格式
      * @return
      */
     @ResponseBody
@@ -70,13 +87,37 @@ public class RestTemplateController {
     }
 
     /**
+     * PUT方式的请求
+     * @param user 前台传递的是json格式的参数
+     * @return
+     */
+    @ResponseBody
+    @PutMapping("putjson")
+    public User testPutJson(@RequestBody User user){
+        System.out.println("要更新的user的是:"+user);
+        return user;
+    }
+
+    /**
      * DELETE方式的请求
-     * @param id
+     * @param id 路径传参
      * @return
      */
     @ResponseBody
     @DeleteMapping("delete/{id}")
     public User testDelete(@PathVariable("id") String id){
+        System.out.println("要删除的user的ID是:"+id);
+        return null;
+    }
+
+    /**
+     * DELETE方式的请求
+     * @param id 问号传参
+     * @return
+     */
+    @ResponseBody
+    @DeleteMapping("delete")
+    public User testDelete1(@RequestParam(name="id") String id){
         System.out.println("要删除的user的ID是:"+id);
         return null;
     }

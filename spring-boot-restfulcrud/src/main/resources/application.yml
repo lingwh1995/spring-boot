@@ -13,6 +13,7 @@ spring:
     date-format: yyyy-MM-dd
 server:
   context-path: /crud
+  port: 8080
 
 #会打印自动配置信息
 debug: true
