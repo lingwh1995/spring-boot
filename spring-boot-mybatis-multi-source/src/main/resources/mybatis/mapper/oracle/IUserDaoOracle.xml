@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dragonsoft.dao.oracle.IUserDaoOracle">
+    <select id="getUserById" resultType="com.dragonsoft.domain.User">
+        SELECT ID,USERNAME,PASSWORD FROM T_USER WHERE ID = #{id}
+    </select>
+
+    <select id="getUsers" resultType="com.dragonsoft.domain.User">
+        SELECT ID,USERNAME,PASSWORD FROM T_USER
+    </select>
+</mapper>
