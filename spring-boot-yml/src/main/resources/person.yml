@@ -1,0 +1,8 @@
+age: 418
+name: Jack
+params:
+  event: what's up
+  url:  http://www.test.com
+favoriteBooks:
+  - Gone with the wind
+  - The Little Prince

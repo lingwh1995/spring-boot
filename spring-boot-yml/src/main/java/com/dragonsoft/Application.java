@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author ronin
+ * @version V1.0
+ * @since 2020/3/5 13:49
  */
 @SpringBootApplication
 public class Application {
