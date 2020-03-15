@@ -5,7 +5,7 @@ server:
       uri-encoding: UTF-8
 spring:
   profiles:
-    active: test
+    active: dev
   output:
     ansi:
       enabled: always
@@ -13,7 +13,7 @@ spring:
     config: classpath:logback-spring.xml
   datasource:
 #   数据源基本配置
-    driver-class-name: oracle.jdbc.driver.OracleDriver
+    driver-class-name: oracle.jdbc.OracleDriver
 
 #   使用type来配置要选用的数据源,这里切换为druid
     type: com.alibaba.druid.pool.DruidDataSource
@@ -38,13 +38,12 @@ spring:
 #      - classpath:test.sql
 #    initialization-mode: always
   jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
         use_sql_comments: true
+    show-sql: true
+    open-in-view: false
 
 #会打印自动配置信息
 debug: true
