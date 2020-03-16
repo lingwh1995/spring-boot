@@ -13,12 +13,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * Springboot中使用JdbcTemplate
  * @author ronin
  */
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class SpringBootJdbcTemplateTest {
-
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
