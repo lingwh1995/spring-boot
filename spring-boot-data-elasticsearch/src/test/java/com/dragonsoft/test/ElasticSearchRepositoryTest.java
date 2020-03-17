@@ -41,7 +41,6 @@ public class ElasticSearchRepositoryTest {
      */
     @Test
     public void fun2(){
-        //给Es中索引,保存一个文档
         Iterable<Article> articles = elasticSearchDao.findAll();
         System.out.println("----------------------------------------");
         articles.forEach(item -> System.out.println(item));
@@ -53,7 +52,6 @@ public class ElasticSearchRepositoryTest {
      */
     @Test
     public void fun3(){
-        //给Es中索引,保存一个文档
         Optional<Article> article = elasticSearchDao.findById(1);
         System.out.println("------------------------------------");
         System.out.println(article.get());
@@ -65,7 +63,6 @@ public class ElasticSearchRepositoryTest {
      */
     @Test
     public void fun4(){
-        //给Es中索引,保存一个文档
         List<Article> articles = elasticSearchDao.findByTitleLike("好消");
         System.out.println("------------------------------------");
         articles.forEach(item -> System.out.println(item));
