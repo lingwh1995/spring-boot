@@ -5,6 +5,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
 
 /**
+ * 测试@RabbitListener
  * @author ronin
  */
 @Service
@@ -16,7 +17,7 @@ public class RaabitServiceImpl implements RaabitService{
      * @param user
      */
     @Override
-    @RabbitListener(queues = {"atguigu"})
+//    @RabbitListener(queues = {"atguigu"})
     public void listen(User user) {
         System.out.println(user);
     }

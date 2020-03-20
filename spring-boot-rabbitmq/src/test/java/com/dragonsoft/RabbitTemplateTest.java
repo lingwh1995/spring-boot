@@ -54,4 +54,23 @@ public class RabbitTemplateTest {
         User user = new User("001", "zhangsan", "lisi");
         rabbitTemplate.convertAndSend("exchange.direct","atguigu",user);
     }
+
+    /**
+     * 测试直接模式给队列中发送消息
+     */
+    @Test
+    public void fun4(){
+        User user = new User("001", "zhangsan", "lisi");
+        rabbitTemplate.convertAndSend("test",user);
+    }
+
+
+    /**
+     * 测试广播模式
+     */
+    @Test
+    public void fun5(){
+        User user = new User("001", "zhangsan", "lisi");
+        rabbitTemplate.convertAndSend("exchange.fanout.boradcast","",user);
+    }
 }

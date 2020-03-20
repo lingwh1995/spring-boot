@@ -18,5 +18,4 @@ public class ApplicationConfiguration {
     @Bean
     public MessageConverter messageConverter(){
         return new Jackson2JsonMessageConverter();
-
     }}
