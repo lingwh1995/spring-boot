@@ -82,7 +82,7 @@ public class RestTemplateExchangeTest {
     public void fun4(){
         String url = "http://localhost:8080/rest/get?name=zs";
         ResponseEntity<User> responseEntity = restTemplate.exchange(url,
-                HttpMethod.DELETE, null, User.class);
+                HttpMethod.GET, null, User.class);
         System.out.println(responseEntity);
     }
 
