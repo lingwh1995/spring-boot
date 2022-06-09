@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: produce
+  application:
+    name: produce-environment
+---
+spring:
+  profiles: dev
+  application:
+    name: dev-environment

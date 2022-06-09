@@ -1,0 +1,94 @@
+1.引入依赖
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-configuration-processor</artifactId>
+    </dependency>
+2.编写实体类,注意 prefix = "user"
+    @ConfigurationProperties(prefix = "user")
+    @Component
+    public class UserProperties {
+        private String name;
+        private String password;
+        private String ip;
+        private int port;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+
+        public void setPassword(String password) {
+            this.password = password;
+        }
+
+        public String getIp() {
+            return ip;
+        }
+
+        public void setIp(String ip) {
+            this.ip = ip;
+        }
+
+        public int getPort() {
+            return port;
+        }
+
+        public void setPort(int port) {
+            this.port = port;
+        }
+    }
+3.启动程序(运行主启动类)
+    运行程序后,程序会自动编译,在
+        target/classes/META-INF/spring-configuration-metadata.json
+    内容如下:
+        {
+          "groups": [
+            {
+              "name": "user",
+              "type": "com.dragonsoft.domain.UserProperties",
+              "sourceType": "com.dragonsoft.domain.UserProperties"
+            }
+          ],
+          "properties": [
+            {
+              "name": "user.ip",
+              "type": "java.lang.String",
+              "sourceType": "com.dragonsoft.domain.UserProperties"
+            },
+            {
+              "name": "user.name",
+              "type": "java.lang.String",
+              "sourceType": "com.dragonsoft.domain.UserProperties"
+            },
+            {
+              "name": "user.password",
+              "type": "java.lang.String",
+              "sourceType": "com.dragonsoft.domain.UserProperties"
+            },
+            {
+              "name": "user.port",
+              "type": "java.lang.Integer",
+              "sourceType": "com.dragonsoft.domain.UserProperties"
+            }
+          ],
+          "hints": []
+        }
+4.有了这个spring-configuration-metadata.json文件,编写YML和Properties文件的时候就会有自动提示
+    例如:
+        输入user.后会自动出现
+            user.name
+            user.password
+            user.ip
+            user.port
+        这四个提示
+5.注意事项
+    1>.生成spring-configuration-metadata.json这个元数据配置文件,需要编译,可以运行主程序或者使用maven编译一下
+    2>.配置实体类上@ConfigurationProperties(prefix = "user")注解中user就是配置文件中可以输入的提示的前缀
+    3>.prefix = "user"的值发生改变需要重新编译一下代码

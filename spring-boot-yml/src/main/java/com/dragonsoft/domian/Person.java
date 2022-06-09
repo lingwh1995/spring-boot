@@ -1,4 +1,4 @@
-package com.dragonsoft.yml.domian;
+package com.dragonsoft.domian;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

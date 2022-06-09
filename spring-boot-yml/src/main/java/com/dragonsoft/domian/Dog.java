@@ -1,4 +1,4 @@
-package com.dragonsoft.yml.domian;
+package com.dragonsoft.domian;
 
 /**
  * @author ronin
