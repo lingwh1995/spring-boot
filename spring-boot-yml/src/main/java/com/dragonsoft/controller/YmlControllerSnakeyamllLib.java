@@ -1,7 +1,6 @@
 package com.dragonsoft.controller;
 
 import com.dragonsoft.domian.Student;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +18,7 @@ import java.util.Map;
  */
 @RestController
 public class YmlControllerSnakeyamllLib {
+
 
     /**
      * 通过Spring容器来管理Snakeyaml实例对象
